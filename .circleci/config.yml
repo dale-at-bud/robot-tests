@@ -11,7 +11,6 @@ jobs:
           password: $DOCKERHUB_PASSWORD
 
     steps:
-      - checkout
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
