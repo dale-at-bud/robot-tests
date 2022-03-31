@@ -15,7 +15,8 @@ jobs:
           name: Run tests
           command: |
             echo 'Hello World!'
-            ls
+            cd robot-framework
+            robot \testfiles
 
 # Invoke jobs via workflows
 workflows:
