@@ -9,12 +9,12 @@ jobs:
         auth:
           username: daleatbud
           password: $DOCKERHUB_PASSWORD
+    working_directory: ~/project
 
     steps:
       - run:
           name: Run tests
           command: |
-            sudo chmod -R 755 project
             echo 'Hello World!'
 
 # Invoke jobs via workflows
