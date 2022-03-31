@@ -12,6 +12,10 @@ jobs:
 
     steps:
       - run:
+          name: Clone tests repository
+          command: >-
+            git clone https://github.com/dale-at-bud/robot-tests.git \testfiles
+      - run:
           name: Run tests
           command: |
             echo 'Hello World!'
