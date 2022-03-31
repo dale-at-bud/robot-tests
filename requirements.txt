@@ -1,4 +1,0 @@
-robotframework
-robotframework-selenium2library
-robotframework-requests
-robotframework-circlecilibrary

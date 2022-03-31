@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.4 on darwin)" generated="20220331 17:22:43.319" rpa="false" schemaversion="3">
+<suite id="s1" name="Testfiles" source="/Users/dale/Documents/demo/robot-framework/testfiles">
+<suite id="s1-s1" name="TestCases" source="/Users/dale/Documents/demo/robot-framework/testfiles/TestCases">
+<suite id="s1-s1-s1" name="TestSuite1" source="/Users/dale/Documents/demo/robot-framework/testfiles/TestCases/TestSuite1.robot">
+<test id="s1-s1-s1-t1" name="TC1 Search For Product On HomePage" line="21">
+<kw name="Given browser is opened to WestwinNow HomePage" library="Keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220331 17:22:43.671" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10ded4fd0&gt;</msg>
+<status status="PASS" starttime="20220331 17:22:43.670" endtime="20220331 17:22:43.671"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.671" endtime="20220331 17:22:43.671"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.671" endtime="20220331 17:22:43.671"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${options}</var>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20220331 17:22:43.672" level="INFO">${options} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['no-sandbox', 'disable-dev-shm-usage']}}</msg>
+<status status="PASS" starttime="20220331 17:22:43.672" endtime="20220331 17:22:43.672"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>desired_capabilities=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220331 17:22:43.673" level="INFO">Opening browser 'chrome' to base url 'https://www.westwingnow.de/'.</msg>
+<msg timestamp="20220331 17:22:43.683" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20220331 17:22:43.684" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</msg>
+<status status="FAIL" starttime="20220331 17:22:43.672" endtime="20220331 17:22:43.693"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.694" endtime="20220331 17:22:43.694"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.694" endtime="20220331 17:22:43.694"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.694" endtime="20220331 17:22:43.694"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.669" endtime="20220331 17:22:43.695"/>
+</kw>
+<kw name="When I search for the product" library="Keywords">
+<arg>${Product_search_term}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.695" endtime="20220331 17:22:43.695"/>
+</kw>
+<kw name="Then I should see product listing page" library="Keywords">
+<arg>${Product_search_term}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.695" endtime="20220331 17:22:43.695"/>
+</kw>
+<kw name="End TestCase" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220331 17:22:43.696" endtime="20220331 17:22:43.696"/>
+</kw>
+<status status="PASS" starttime="20220331 17:22:43.696" endtime="20220331 17:22:43.697"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.668" endtime="20220331 17:22:43.697">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</status>
+</test>
+<test id="s1-s1-s1-t2" name="TC2 Add To Wishlist And Login Then Delete Wishlist" line="27">
+<kw name="Given browser is opened to WestwinNow Homepage" library="Keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220331 17:22:43.699" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10e34a260&gt;</msg>
+<status status="PASS" starttime="20220331 17:22:43.698" endtime="20220331 17:22:43.699"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.699" endtime="20220331 17:22:43.699"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.699" endtime="20220331 17:22:43.699"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${options}</var>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20220331 17:22:43.700" level="INFO">${options} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['no-sandbox', 'disable-dev-shm-usage']}}</msg>
+<status status="PASS" starttime="20220331 17:22:43.699" endtime="20220331 17:22:43.700"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>desired_capabilities=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220331 17:22:43.700" level="INFO">Opening browser 'chrome' to base url 'https://www.westwingnow.de/'.</msg>
+<msg timestamp="20220331 17:22:43.704" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20220331 17:22:43.704" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</msg>
+<status status="FAIL" starttime="20220331 17:22:43.700" endtime="20220331 17:22:43.705"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.705" endtime="20220331 17:22:43.705"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.705" endtime="20220331 17:22:43.706"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.706" endtime="20220331 17:22:43.706"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.698" endtime="20220331 17:22:43.706"/>
+</kw>
+<kw name="When I search for the product" library="Keywords">
+<arg>${Product_search_term}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.706" endtime="20220331 17:22:43.706"/>
+</kw>
+<kw name="And user is logged in by adding item to wishlist" library="Keywords">
+<arg>${My_Username}</arg>
+<arg>${My_Password}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.707" endtime="20220331 17:22:43.707"/>
+</kw>
+<kw name="Then the product should be added to the wishlist" library="Keywords">
+<status status="NOT RUN" starttime="20220331 17:22:43.707" endtime="20220331 17:22:43.707"/>
+</kw>
+<kw name="When the user deletes the item from the wishlist" library="Keywords">
+<status status="NOT RUN" starttime="20220331 17:22:43.707" endtime="20220331 17:22:43.707"/>
+</kw>
+<kw name="Then the item should be removed from the wishlist page" library="Keywords">
+<status status="NOT RUN" starttime="20220331 17:22:43.707" endtime="20220331 17:22:43.707"/>
+</kw>
+<kw name="End TestCase" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220331 17:22:43.708" endtime="20220331 17:22:43.708"/>
+</kw>
+<status status="PASS" starttime="20220331 17:22:43.708" endtime="20220331 17:22:43.708"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.697" endtime="20220331 17:22:43.708">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</status>
+</test>
+<doc>WestWing Test - Dale Fixter</doc>
+<status status="FAIL" starttime="20220331 17:22:43.355" endtime="20220331 17:22:43.709"/>
+</suite>
+<suite id="s1-s1-s2" name="TestSuite2" source="/Users/dale/Documents/demo/robot-framework/testfiles/TestCases/TestSuite2.robot">
+<test id="s1-s1-s2-t1" name="TC1 Search For Product On HomePage" line="21">
+<kw name="Given browser is opened to WestwinNow HomePage" library="Keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220331 17:22:43.719" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10e34a3e0&gt;</msg>
+<status status="PASS" starttime="20220331 17:22:43.718" endtime="20220331 17:22:43.719"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.719" endtime="20220331 17:22:43.719"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.719" endtime="20220331 17:22:43.719"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${options}</var>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20220331 17:22:43.719" level="INFO">${options} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['no-sandbox', 'disable-dev-shm-usage']}}</msg>
+<status status="PASS" starttime="20220331 17:22:43.719" endtime="20220331 17:22:43.719"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>desired_capabilities=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220331 17:22:43.720" level="INFO">Opening browser 'chrome' to base url 'https://www.westwingnow.de/'.</msg>
+<msg timestamp="20220331 17:22:43.724" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20220331 17:22:43.724" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</msg>
+<status status="FAIL" starttime="20220331 17:22:43.720" endtime="20220331 17:22:43.725"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.725" endtime="20220331 17:22:43.725"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.725" endtime="20220331 17:22:43.725"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.726" endtime="20220331 17:22:43.726"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.718" endtime="20220331 17:22:43.726"/>
+</kw>
+<kw name="When I search for the product" library="Keywords">
+<arg>${Product_search_term}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.726" endtime="20220331 17:22:43.726"/>
+</kw>
+<kw name="Then I should see product listing page" library="Keywords">
+<arg>${Product_search_term}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.727" endtime="20220331 17:22:43.727"/>
+</kw>
+<kw name="End TestCase" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220331 17:22:43.727" endtime="20220331 17:22:43.727"/>
+</kw>
+<status status="PASS" starttime="20220331 17:22:43.727" endtime="20220331 17:22:43.728"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.717" endtime="20220331 17:22:43.728">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</status>
+</test>
+<test id="s1-s1-s2-t2" name="TC2 Add To Wishlist And Login Then Delete Wishlist" line="27">
+<kw name="Given browser is opened to WestwinNow Homepage" library="Keywords">
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220331 17:22:43.729" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10e3f5930&gt;</msg>
+<status status="PASS" starttime="20220331 17:22:43.729" endtime="20220331 17:22:43.729"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.729" endtime="20220331 17:22:43.730"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20220331 17:22:43.730" endtime="20220331 17:22:43.730"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${options}</var>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20220331 17:22:43.730" level="INFO">${options} = {'browserName': 'chrome', 'pageLoadStrategy': 'normal', 'goog:chromeOptions': {'extensions': [], 'args': ['no-sandbox', 'disable-dev-shm-usage']}}</msg>
+<status status="PASS" starttime="20220331 17:22:43.730" endtime="20220331 17:22:43.730"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>desired_capabilities=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220331 17:22:43.731" level="INFO">Opening browser 'chrome' to base url 'https://www.westwingnow.de/'.</msg>
+<msg timestamp="20220331 17:22:43.734" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20220331 17:22:43.735" level="FAIL">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</msg>
+<status status="FAIL" starttime="20220331 17:22:43.730" endtime="20220331 17:22:43.736"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.736" endtime="20220331 17:22:43.736"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.736" endtime="20220331 17:22:43.737"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${AcceptCookies}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220331 17:22:43.737" endtime="20220331 17:22:43.737"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.729" endtime="20220331 17:22:43.737"/>
+</kw>
+<kw name="When I search for the product" library="Keywords">
+<arg>${Product_search_term}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.738" endtime="20220331 17:22:43.738"/>
+</kw>
+<kw name="And user is logged in by adding item to wishlist" library="Keywords">
+<arg>${My_Username}</arg>
+<arg>${My_Password}</arg>
+<status status="NOT RUN" starttime="20220331 17:22:43.738" endtime="20220331 17:22:43.738"/>
+</kw>
+<kw name="Then the product should be added to the wishlist" library="Keywords">
+<status status="NOT RUN" starttime="20220331 17:22:43.738" endtime="20220331 17:22:43.738"/>
+</kw>
+<kw name="When the user deletes the item from the wishlist" library="Keywords">
+<status status="NOT RUN" starttime="20220331 17:22:43.738" endtime="20220331 17:22:43.738"/>
+</kw>
+<kw name="Then the item should be removed from the wishlist page" library="Keywords">
+<status status="NOT RUN" starttime="20220331 17:22:43.739" endtime="20220331 17:22:43.739"/>
+</kw>
+<kw name="End TestCase" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220331 17:22:43.742" endtime="20220331 17:22:43.742"/>
+</kw>
+<status status="PASS" starttime="20220331 17:22:43.739" endtime="20220331 17:22:43.742"/>
+</kw>
+<status status="FAIL" starttime="20220331 17:22:43.728" endtime="20220331 17:22:43.743">WebDriverException: Message: 'chromedriver' executable needs to be in PATH. Please see https://chromedriver.chromium.org/home
+</status>
+</test>
+<doc>WestWing Test - Dale Fixter</doc>
+<status status="FAIL" starttime="20220331 17:22:43.710" endtime="20220331 17:22:43.743"/>
+</suite>
+<status status="FAIL" starttime="20220331 17:22:43.354" endtime="20220331 17:22:43.744"/>
+</suite>
+<status status="FAIL" starttime="20220331 17:22:43.324" endtime="20220331 17:22:43.745"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="4" skip="0" id="s1" name="Testfiles">Testfiles</stat>
+<stat pass="0" fail="4" skip="0" id="s1-s1" name="TestCases">Testfiles.TestCases</stat>
+<stat pass="0" fail="2" skip="0" id="s1-s1-s1" name="TestSuite1">Testfiles.TestCases.TestSuite1</stat>
+<stat pass="0" fail="2" skip="0" id="s1-s1-s2" name="TestSuite2">Testfiles.TestCases.TestSuite2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

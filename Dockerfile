@@ -1,7 +1,6 @@
 FROM python:3.9.0-alpine3.12
 
-MAINTAINER Dale Fixter <77000850+DaleSDET@users.noreply.github.com>
-LABEL description Robot Framework in Docker with Chrome Firefox.
+LABEL description Robot Framework in Docker
 
 # Set the reports directory environment variable
 ENV ROBOT_REPORTS_DIR /opt/robotframework/reports
@@ -30,22 +29,25 @@ ENV ROBOT_GID 1000
 
 # Dependency versions
 ENV ALPINE_GLIBC 2.31-r0
-ENV AWS_CLI_VERSION 1.18.200
+ENV AWS_CLI_VERSION 1.20.6
+ENV AXE_SELENIUM_LIBRARY_VERSION 2.1.6
+ENV BROWSER_LIBRARY_VERSION 6.0.0
 ENV CHROMIUM_VERSION 86.0
-ENV DATABASE_LIBRARY_VERSION 1.2
-ENV DATADRIVER_VERSION 1.0.0
+ENV DATABASE_LIBRARY_VERSION 1.2.4
+ENV DATADRIVER_VERSION 1.4.1
 ENV DATETIMETZ_VERSION 1.0.6
 ENV FAKER_VERSION 5.0.0
 ENV FIREFOX_VERSION 78
 ENV FTP_LIBRARY_VERSION 1.9
 ENV GECKO_DRIVER_VERSION v0.26.0
-ENV IMAP_LIBRARY_VERSION 0.3.8
-ENV PABOT_VERSION 1.10.0
-ENV REQUESTS_VERSION 0.7.2
-ENV ROBOT_FRAMEWORK_VERSION 3.2.2
-ENV SELENIUM_LIBRARY_VERSION 4.5.0
-ENV SSH_LIBRARY_VERSION 3.5.1
+ENV IMAP_LIBRARY_VERSION 0.4.0
+ENV PABOT_VERSION 2.0.1
+ENV REQUESTS_VERSION 0.9.1
+ENV ROBOT_FRAMEWORK_VERSION 4.1
+ENV SELENIUM_LIBRARY_VERSION 5.1.3
+ENV SSH_LIBRARY_VERSION 3.7.0
 ENV XVFB_VERSION 1.20
+ENV CIRCLECI_LIBRARY_VERSION 0.1.3
 
 # By default, no reports are uploaded to AWS S3
 ENV AWS_UPLOAD_TO_S3 false
@@ -59,6 +61,12 @@ COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 RUN apk update \
   && apk --no-cache upgrade \
   && apk --no-cache --virtual .build-deps add \
+
+    # Install dependencies for cryptography due to https://github.com/pyca/cryptography/issues/5771
+    cargo \
+    rust \
+
+    # Continue with system dependencies
     gcc \
     g++ \
     libffi-dev \
@@ -72,6 +80,8 @@ RUN apk update \
     "chromium~$CHROMIUM_VERSION" \
     "chromium-chromedriver~$CHROMIUM_VERSION" \
     "firefox-esr~$FIREFOX_VERSION" \
+    nodejs \
+    nodejs-npm \
     xauth \
     tzdata \
     "xvfb-run~$XVFB_VERSION" \
@@ -83,8 +93,10 @@ RUN apk update \
   && pip3 install \
     --no-cache-dir \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
+    robotframework-browser==$BROWSER_LIBRARY_VERSION \
     robotframework-databaselibrary==$DATABASE_LIBRARY_VERSION \
     robotframework-datadriver==$DATADRIVER_VERSION \
+    robotframework-datadriver[XLS] \
     robotframework-datetime-tz==$DATETIMETZ_VERSION \
     robotframework-faker==$FAKER_VERSION \
     robotframework-ftplibrary==$FTP_LIBRARY_VERSION \
@@ -93,10 +105,15 @@ RUN apk update \
     robotframework-requests==$REQUESTS_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
+    axe-selenium-python==$AXE_SELENIUM_LIBRARY_VERSION \
+    robotframework-circlecilibrary==$CIRCLECI_LIBRARY_VERSION \
     PyYAML \
 
 # Install awscli to be able to upload test reports to AWS S3
     awscli==$AWS_CLI_VERSION \
+
+# Install the node dependencies for the Browser library
+  && rfbrowser init \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
