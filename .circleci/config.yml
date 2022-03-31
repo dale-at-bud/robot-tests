@@ -3,15 +3,14 @@ version: 2.1
 
 jobs:
   build-and-test: # This is the name of the job, feel free to change it to better match what you're trying to do!
-
     docker:
       - image: daleatbud/robotframework-docker:0.0.1
         auth:
           username: daleatbud
           password: $DOCKERHUB_PASSWORD
     working_directory: ~/project
-
     steps:
+      - checkout
       - run:
           name: Run tests
           command: |
