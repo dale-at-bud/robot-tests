@@ -47,6 +47,7 @@ ENV ROBOT_FRAMEWORK_VERSION 4.1
 ENV SELENIUM_LIBRARY_VERSION 5.1.3
 ENV SSH_LIBRARY_VERSION 3.7.0
 ENV XVFB_VERSION 1.20
+ENV CIRCLECI_LIBRARY_VERSION 0.1.3
 
 # By default, no reports are uploaded to AWS S3
 ENV AWS_UPLOAD_TO_S3 false
@@ -55,6 +56,14 @@ ENV AWS_UPLOAD_TO_S3 false
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
+
+# Install CircleCI dependencies
+RUN apt-get update \
+  && mkdir -p /usr/share/man/man1 \
+  && apt-get install -y \
+    git mercurial xvfb apt \
+    locales sudo openssh-client ca-certificates tar gzip parallel \
+    net-tools netcat unzip zip bzip2 gnupg curl wget make
 
 # Install system dependencies
 RUN apk update \
@@ -105,6 +114,7 @@ RUN apk update \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     axe-selenium-python==$AXE_SELENIUM_LIBRARY_VERSION \
+    robotframework-circlecilibrary==$CIRCLECI_LIBRARY_VERSION \
     PyYAML \
 
 # Install awscli to be able to upload test reports to AWS S3
