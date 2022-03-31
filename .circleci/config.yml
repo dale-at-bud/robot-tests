@@ -13,8 +13,6 @@ jobs:
     steps:
       - checkout
       - run:
-
-      - run:
           name: Run tests
           command: |
             echo 'Hello World!'
