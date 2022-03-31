@@ -13,10 +13,10 @@ jobs:
     steps:
       - run:
           name: Run tests
-          # This assumes pytest is installed via the install-package step above
-          command:
+          command: |
+            sudo chmod -R 755 project
             echo 'Hello World!'
-          
+
 # Invoke jobs via workflows
 workflows:
   runrobottestsworkflow: # This is the name of the workflow, feel free to change it to better match your workflow.

@@ -1,6 +1,6 @@
 FROM python:3.9.0-alpine3.12
 
-LABEL description Robot Framework in Docker
+LABEL description Robot Framework Docker
 
 # Set the reports directory environment variable
 ENV ROBOT_REPORTS_DIR /opt/robotframework/reports
@@ -61,11 +61,9 @@ COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 RUN apk update \
   && apk --no-cache upgrade \
   && apk --no-cache --virtual .build-deps add \
-
     # Install dependencies for cryptography due to https://github.com/pyca/cryptography/issues/5771
     cargo \
     rust \
-
     # Continue with system dependencies
     gcc \
     g++ \
@@ -108,13 +106,10 @@ RUN apk update \
     axe-selenium-python==$AXE_SELENIUM_LIBRARY_VERSION \
     robotframework-circlecilibrary==$CIRCLECI_LIBRARY_VERSION \
     PyYAML \
-
 # Install awscli to be able to upload test reports to AWS S3
     awscli==$AWS_CLI_VERSION \
-
 # Install the node dependencies for the Browser library
   && rfbrowser init \
-
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
     && wget -q "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/$ALPINE_GLIBC/glibc-$ALPINE_GLIBC.apk" \
@@ -124,14 +119,12 @@ RUN apk update \
     && rm glibc-$ALPINE_GLIBC.apk \
     && rm glibc-bin-$ALPINE_GLIBC.apk \
     && rm /etc/apk/keys/sgerrand.rsa.pub \
-
 # Download Gecko drivers directly from the GitHub repository
   && wget -q "https://github.com/mozilla/geckodriver/releases/download/$GECKO_DRIVER_VERSION/geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz" \
     && tar xzf geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
     && mkdir -p /opt/robotframework/drivers/ \
     && mv geckodriver /opt/robotframework/drivers/geckodriver \
     && rm geckodriver-$GECKO_DRIVER_VERSION-linux64.tar.gz \
-
 # Clean up buildtime dependencies
   && apk del --no-cache --update-cache .build-deps
 
