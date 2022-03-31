@@ -11,16 +11,14 @@ jobs:
     working_directory: .
 
     steps:
-      - run:
-          name: Clone tests repository
-          command: >-
-            git clone https://github.com/dale-at-bud/robot-tests.git \testfiles
+      - checkout
       - run:
           name: Run tests
           command: |
             echo 'Hello World!'
-            cd robot-framework
-            robot \testfiles
+            ls -al
+        # cd robot-framework
+        # robot \testfiles
 
 # Invoke jobs via workflows
 workflows:
