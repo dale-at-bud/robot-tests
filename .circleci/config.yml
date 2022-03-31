@@ -8,9 +8,12 @@ jobs:
         auth:
           username: daleatbud
           password: $DOCKERHUB_PASSWORD
-    working_directory: ~/project
+    working_directory: .
+
     steps:
       - checkout
+      - run:
+
       - run:
           name: Run tests
           command: |
