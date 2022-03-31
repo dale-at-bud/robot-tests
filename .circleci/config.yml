@@ -14,7 +14,9 @@ jobs:
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
-          command: robot \testfiles
+          command: |
+          chown -R $USER:$USER /project
+          robot \testfiles
 
 # Invoke jobs via workflows
 workflows:
