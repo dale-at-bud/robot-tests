@@ -11,10 +11,9 @@ jobs:
     working_directory: .
 
     steps:
-      - checkout
       - run:
           name: Run tests
-          command: |
+          command:
             echo 'Hello World!'
 
 # Invoke jobs via workflows
