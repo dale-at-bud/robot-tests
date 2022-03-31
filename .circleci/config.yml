@@ -16,7 +16,6 @@ jobs:
           name: Run tests
           command: |
             echo 'Hello World!'
-            ls -al
 
 # Invoke jobs via workflows
 workflows:
