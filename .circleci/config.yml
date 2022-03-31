@@ -13,7 +13,7 @@ jobs:
     steps:
       - run:
           name: Run tests
-          command:
+          command: |
             docker run \
             -e ROBOT_OPTIONS="--nostatusrc" \
             -e ROBOT_THREADS=2 \
