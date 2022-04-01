@@ -14,15 +14,15 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker run \
-            -e ROBOT_OPTIONS="--nostatusrc" \
-            -e ROBOT_THREADS=2 \
-            -v ${PWD}/reports:/opt/robotframework/reports:Z \
-            -v ${PWD}/testfiles/TestCases:/opt/robotframework/tests:Z \
-            -v ${PWD}/testfiles/Resources:/opt/robotframework/Resources:Z \
-            -v ${PWD}/testfiles/PageObjects:/opt/robotframework/PageObjects:Z \
-            -e BROWSER=chrome \
-            --user $(id -u):$(id -g) \
+            docker run
+            -e ROBOT_OPTIONS="--nostatusrc"
+            -e ROBOT_THREADS=2
+            -v ${PWD}/reports:/opt/robotframework/reports:Z
+            -v ${PWD}/testfiles/TestCases:/opt/robotframework/tests:Z
+            -v ${PWD}/testfiles/Resources:/opt/robotframework/Resources:Z
+            -v ${PWD}/testfiles/PageObjects:/opt/robotframework/PageObjects:Z
+            -e BROWSER=chrome
+            --user $(id -u):$(id -g)
             daleatbud/robotframework-docker:0.0.1
             echo 'Hello World!'
 
