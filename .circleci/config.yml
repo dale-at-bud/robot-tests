@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            docker run
+            run
             -e ROBOT_OPTIONS="--nostatusrc"
             -e ROBOT_THREADS=2
             -v ${PWD}/reports:/opt/robotframework/reports:Z
