@@ -2,7 +2,7 @@
 
 ## What is it? :question:
  
-This project consists of a Docker image :whale2: containing a complete Robot Framework :robot: installation, and a sample UI test suite for eCommerce website, running on Alpine Linux :rocket:, a lightweight linux distro.
+This project consists of a Docker image :whale2: containing a complete Robot Framework :robot: installation, and a sample UI test suite, running on Alpine Linux :rocket:, a lightweight linux distro.
 
 This installation also contains Firefox, Chrome and the Selenium library for Robot Framework.
 
@@ -25,9 +25,6 @@ The versioning of this image are as follows:
 * Chromium 86.0
 * [Amazon AWS CLI](https://pypi.org/project/awscli/) 1.18.200
 
-## Video of test execution :tv:
-
-https://vimeo.com/504810311
 
 ## Running the Docker container :ballot_box_with_check:
 

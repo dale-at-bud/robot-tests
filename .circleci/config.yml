@@ -28,7 +28,18 @@ jobs:
 
 # Invoke jobs via workflows
 workflows:
+  version: 1
   runrobottestsworkflow: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run. In this case we have just the one job defined above.
+    jobs:
+      - build-and-test
+  nightly: # Here contains the info to trigger your workflows on a time basis, in this example I set to 5am every morning.
+    triggers:
+      - schedule:
+          cron: "0 5 * * *"
+          filters:
+            branches:
+              only:
+                - main
     jobs:
       - build-and-test
